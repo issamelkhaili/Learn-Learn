@@ -1,30 +1,35 @@
-const	needed = 120;
-var	timeleft;
-var	daysleft;
+const needed = 120;
+var timeleft;
+var daysleft;
 var date = new Date().toISOString().split("T")[0];
-date = date.split('-')[2];
+date = parseInt(date.split('-')[2], 10);
 // input_variables
-var	dones = 80;
+var dones = 99;
 var maxdays = 23;
 //result_variables
 var perday;
 
-function	gettimeleft(done)
+function gettimeleft(done)
 {
-	if (done > needed)
-		console.log("Congrats You already finished the required logtime");
+	if (Number.isInteger(done) === true)
+	{
+		if (done > needed)
+			console.log("Congrats You already finished the required logtime");
+		else
+			timeleft = needed - done;
+	}
 	else
-		timeleft = needed - done;
+		return false;
 }
 
-function	getdaysleft(maxday)
+function getdaysleft(maxday)
 {
 	if(date > maxday)
 		console.log("The max date has already passed !");
 	daysleft = maxday - date;
 }
 
-function	printdaysleft()
+function printdaysleft()
 {
 	getdaysleft(maxdays);
 	if (daysleft == null)
@@ -34,13 +39,13 @@ function	printdaysleft()
 	}
 	if (daysleft == 1)
 		console.log("You Have " + daysleft +" day to finish your logtime.\n");
-	else if (daysleft == 0 || daysleft > 1)
-		console.log("You Have " + daysleft +" days to finish your logtime.\n")
+	else if (daysleft >= 0)
+		console.log("You Have " + daysleft +" days to finish your logtime.\n");
 	else
 		console.log("Error");
 }
 
-function	printhoursleft()
+function printhoursleft()
 {
 	gettimeleft(dones);
 	if (timeleft == null)
@@ -56,23 +61,22 @@ function	printhoursleft()
 		console.log("Error");
 }
 
-function	neddedperday()
+function neddedperday()
 {
 	gettimeleft(dones);
 	getdaysleft(maxdays);
-
-	perday = timeleft / daysleft;
-	if (perday == null)
+	if (timeleft == null || daysleft == null || daysleft <= 0)
 	{
-		console.log("Error");
-		return ;
-	}
-	if (perday > 24)
-	{
-		console.log("Sorry , But seems that you can't the required logtime of this month");
+		console.log("Error: Cannot calculate hours per day");
 		return;
 	}
-	console.log("You need to log " + perday + " hour(s) in " + daysleft + " day(s)");
+	perday = timeleft / daysleft;
+	if (perday > 24)
+	{
+		console.log("Sorry, but seems that you can't complete the required logtime of this month");
+		return;
+	}
+	console.log("You need to log " + perday.toFixed(2) + " hour(s) in " + daysleft + " day(s)");
 }
 
 neddedperday();
