@@ -10,9 +10,9 @@ class FileHandler {
     public function readfile()
     {
         while(!feof($this->filehandle))
-        {
+	{
             echo fgets($this->filehandle);
-        }
+	}
     }
 }
 $letsdoit = new Filehandler("first_object.php");
