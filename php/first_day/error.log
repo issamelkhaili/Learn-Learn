@@ -1,0 +1,3 @@
+2025-02-24 05:58:47 | File: /home/robot/Desktop/Learn-Learn/php/first_day/learn_magic.php | Line: 6 | Method: FileLogger::logError | Message: Something went wrong!
+2025-02-24 05:58:52 | File: /home/robot/Desktop/Learn-Learn/php/first_day/learn_magic.php | Line: 6 | Method: FileLogger::logError | Message: Something went wrong!
+2025-02-24 05:58:58 | File: /home/robot/Desktop/Learn-Learn/php/first_day/learn_magic.php | Line: 6 | Method: FileLogger::logError | Message: Something went wrong!
