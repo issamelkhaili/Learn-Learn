@@ -1,0 +1,18 @@
+Basic JavaScript
+
+Functions and variables
+DOM manipulation (getting content from elements)
+Event handling (for buttons and inputs)
+
+
+AJAX Fundamentals
+
+How to use XMLHttpRequest
+Sending data to the server
+Handling responses
+
+
+Client-Server Communication
+
+How the browser communicates with the server
+Sending and receiving data without page reloads
